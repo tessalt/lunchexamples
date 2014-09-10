@@ -1,0 +1,25 @@
+<link rel="import" href="../lib/components/polymer/polymer.html">
+<link rel="import" href="../lib/components/core-ajax/core-ajax.html">
+
+<polymer-element name="notes-form" attributes="url notes">
+
+  <template>
+    <core-ajax id="noteAjax" url="{{url}}" method="POST" body="{{body}}" handleAs="json" on-core-response="{{handleResponse}}" response="{{response}}"></core-ajax>
+    <input type="text" value="{{val}}" on-change="{{handleInput}}" />
+  </template>
+
+  <script>
+  Polymer('notes-form', {
+    handleInput: function() {
+      this.body = {
+        title: this.val.trim()
+      }
+      this.$.noteAjax.go();
+    },
+    handleResponse: function() {
+      this.notes.push(this.response);
+      this.val = '';
+    }
+  });
+  </script>
+</polymer-element> 

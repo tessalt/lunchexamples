@@ -1,0 +1,21 @@
+<link rel="import" href="../lib/components/polymer/polymer.html">
+<link rel="import" href="../lib/components/core-ajax/core-ajax.html">
+<link rel="import" href="../components/notes-form.html">
+<link rel="import" href="../components/notes-list.html">
+
+<polymer-element name="notes-box" attributes="url">
+
+  <template>
+    <core-ajax auto url="{{url}}"handleAs="json"on-core-response="{{handleResponse}}"response="{{response}}"></core-ajax>
+    <notes-form url="{{url}}" notes="{{notes}}"></notes-form>
+    <notes-list notes="{{notes}}"></notes-list>
+  </template>
+
+  <script>
+  Polymer('notes-box', {
+    handleResponse: function() {
+      this.notes = this.response;
+    }
+  });
+  </script>
+</polymer-element> 

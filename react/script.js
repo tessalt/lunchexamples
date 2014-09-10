@@ -7,7 +7,7 @@
         url: this.props.url,
         dataType: 'json',
         success: function(data) {
-          this.setState({data: data.notes})
+          this.setState({data: data})
         }.bind(this)
       })
     },
@@ -17,7 +17,7 @@
         dataType: 'json',
         type: 'POST',
         success: function(data) {          
-          var newState = this.state.data.concat(data.note);
+          var newState = this.state.data.concat(data);
           console.log(this.state.data);
           this.setState({data: newState});
         }.bind(this)

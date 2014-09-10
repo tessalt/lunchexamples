@@ -1,0 +1,11 @@
+<link rel="import" href="../lib/components/polymer/polymer.html">
+
+<polymer-element name="notes-list" attributes="notes" noscript>
+
+  <template>
+    <ul>
+      <template repeat="{{ note in notes }}"><li>{{note.title}}</li></template>
+    </ul>
+  </template>
+
+</polymer-element> 
