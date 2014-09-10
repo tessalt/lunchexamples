@@ -5,9 +5,7 @@ App.ApplicationAdapter = DS.RESTAdapter.extend({
 });
 
 App.Router.map(function(){
-  this.resource('notes', {path: '/'}, function(){
-    this.route('new');
-  });
+  this.resource('notes', {path: '/'})
 });
 
 App.NotesRoute = Ember.Route.extend({
