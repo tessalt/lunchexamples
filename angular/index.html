@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Angular demo</title>
+  <script src="lib/angular.js"></script>
+  <script src="lib/angular-resource.js"></script>
+  <script src="script.js"></script>
+</head>
+<body ng-app="notes">
+
+<div ng-controller="notesController">
+  <h1>Notes</h1>
+  <form ng-submit="addNote()">
+    <input type="text" ng-model="newNote">
+  </form>
+  <ul>
+    <li ng-repeat="note in notes">{{note.title}}</li>
+  </ul>
+</div>
+
+</body>
+</html>

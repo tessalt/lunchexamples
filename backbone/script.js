@@ -23,10 +23,10 @@
   App.AppView = Backbone.View.extend({
     el: "#notes",
     events: {
-      'keypress #new-note': 'createOnEnter',
+      'submit #new-note': 'createNote',
     },
     initialize: function() {
-      this.newNote = $('#new-note');
+      this.newNote = $('#new-note').find('input');
       this.list = $('#notes-list');
       this.listenTo(App.Notes, 'reset', this.addAll);
       this.listenTo(App.Notes, 'add', this.addOne);
@@ -40,14 +40,14 @@
       var view = new App.NoteView({model: note});
       this.list.append(view.render().el);
     },
-    createOnEnter: function(e) {
-      if (e.which === 13 && this.newNote.val().trim()) {
-        App.Notes.create({
-          title: this.newNote.val().trim()
-        });
-        this.newNote.val('');
-      }
+    createNote: function(e) {
+      e.preventDefault();
+      App.Notes.create({
+        title: this.newNote.val().trim()
+      });
+      this.newNote.val('');
     }
+
   });
 
   new App.AppView();
