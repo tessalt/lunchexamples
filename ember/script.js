@@ -1,7 +1,7 @@
 var App = Ember.Application.create();
 
 App.ApplicationAdapter = DS.RESTAdapter.extend({
-  host: 'http://notes87.apiary-mock.com'
+  host: 'http://notesrest.apiary-mock.com'
 });
 
 App.Router.map(function(){
