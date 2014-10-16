@@ -5,7 +5,9 @@
 
 <polymer-element name="notes-box" attributes="url">
 
+
   <template>
+    <h1>Notes</h1>
     <core-ajax auto url="{{url}}"handleAs="json"on-core-response="{{handleResponse}}"response="{{response}}"></core-ajax>
     <notes-form url="{{url}}" notes="{{notes}}"></notes-form>
     <notes-list notes="{{notes}}"></notes-list>
