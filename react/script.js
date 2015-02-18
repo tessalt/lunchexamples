@@ -18,7 +18,6 @@
         type: 'POST',
         success: function(data) {          
           var newState = this.state.data.concat(data);
-          console.log(this.state.data);
           this.setState({data: newState});
         }.bind(this)
       });
